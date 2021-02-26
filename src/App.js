@@ -3,6 +3,8 @@ import { Switch, Route, Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
+import Home from './components/Home';
+
 const App = () => {
 
   return (
@@ -18,6 +20,10 @@ const App = () => {
           </li>
         </div>
       </nav>
+
+      <Switch>
+        <Route exact path={['/', '/home']} component={Home} />
+      </Switch>
     </div>
   )
 }
