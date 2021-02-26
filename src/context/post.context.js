@@ -3,9 +3,7 @@ import { useReducer, createContext } from 'react';
 export const PostContext = createContext();
 
 const initialState = {
-    posts: [],
-    post: {},
-    message: {}
+    posts: []
 };
 
 function reducer(state, action) {
@@ -14,6 +12,13 @@ function reducer(state, action) {
             return {
                 ...state,
                 posts: action.payload
+            };
+        }
+
+        case 'CREATE_POST': {
+            return {
+                ...state,
+                posts: [...state.posts, action.payload]
             };
         }
 

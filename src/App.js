@@ -8,6 +8,7 @@ import PostService from './services/post.service';
 
 import Home from './components/Home';
 import PostDetail from './components/PostDetail';
+import CreatePostForm from './components/CreatePostForm';
 
 
 const App = () => {
@@ -40,6 +41,7 @@ const App = () => {
       <Switch>
         <Route exact path={['/', '/home']} component={Home} />
         <Route path={'/view/:id'} component={PostDetail} />
+        <Route exact path={'/new'} component={CreatePostForm} />
       </Switch>
     </div>
   )
