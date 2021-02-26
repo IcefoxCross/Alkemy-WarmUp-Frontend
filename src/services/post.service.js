@@ -9,7 +9,11 @@ const getPosts = () => {
     return axiosInstance.get('/posts');
 };
 
+const getPost = (postId) => {
+    return axiosInstance.get(`/posts/${postId}`);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getPosts
+    getPosts, getPost
 };

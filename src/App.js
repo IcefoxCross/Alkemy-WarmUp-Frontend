@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 import Home from './components/Home';
+import PostDetail from './components/PostDetail';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
 
       <Switch>
         <Route exact path={['/', '/home']} component={Home} />
+        <Route path={'/view/:id'} component={PostDetail} />
       </Switch>
     </div>
   )
