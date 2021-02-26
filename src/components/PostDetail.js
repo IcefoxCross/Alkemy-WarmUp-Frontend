@@ -8,9 +8,9 @@ const PostDetail = (props) => {
     const [state, dispatch] = useContext(PostContext);
 
     useEffect(() => {
-        console.log(state.posts.length);
         const postId = props.match.params.id;
         const _post = state.posts.find(p => {return p.id === parseInt(postId);});
+        
         if (typeof _post === undefined) {
             PostService.getPost(postId).then(res => {
                 setPost(res.data);

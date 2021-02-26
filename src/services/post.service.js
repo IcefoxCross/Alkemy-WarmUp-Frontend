@@ -13,7 +13,11 @@ const getPost = (postId) => {
     return axiosInstance.get(`/posts/${postId}`);
 };
 
+const deletePost = (postId) => {
+    return axiosInstance.delete(`/posts/${postId}`);
+};
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    getPosts, getPost
+    getPosts, getPost, deletePost
 };

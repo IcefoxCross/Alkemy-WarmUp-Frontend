@@ -17,6 +17,14 @@ function reducer(state, action) {
             };
         }
 
+        case 'DELETE_POST': {
+            const {id} = action.payload;
+            return {
+                ...state,
+                posts: state.posts.filter(post => post.id !== id)
+            };
+        }
+
         default:
             throw new Error();
     }
