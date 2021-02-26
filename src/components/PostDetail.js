@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PostService from '../services/post.service';
+
+import { PostContext } from '../context/post.context';
 
 const PostDetail = (props) => {
     const [post, setPost] = useState({title: '', body: ''});
+    const [state, dispatch] = useContext(PostContext);
 
     useEffect(() => {
+        console.log(state.posts.length);
         const postId = props.match.params.id;
-        PostService.getPost(postId).then(res => {
-            setPost(res.data);
-        }).catch(e => {setPost({title: 'Post not found.', body: ''});});
+        const _post = state.posts.find(p => {return p.id === parseInt(postId);});
+        if (typeof _post === undefined) {
+            PostService.getPost(postId).then(res => {
+                setPost(res.data);
+            }).catch(e => {setPost({title: 'Post not found.', body: ''});});
+        } else {
+            setPost(_post);
+        }
     }, []);
 
     return (
