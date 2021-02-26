@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { PostContext } from '../context/post.context';
 import PostService from '../services/post.service';
 
+import PostList from './PostList';
+
 const Home = () => {
     const [state, dispatch] = useContext(PostContext);
     useEffect(() => {
@@ -18,8 +20,8 @@ const Home = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            <h1>{state.posts.length} posts</h1>
+        <div className="container mt-3 w-55">
+            <PostList posts={state.posts} />
         </div>
     )
 };
